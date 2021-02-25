@@ -1,3 +1,4 @@
 # Durableverse - Groupe Sobre
 
-Le projet d'un groupe sans fioriture.
+__make all__ pour générer les exécutables.<br>
+__make run__ pour lancer le jeu.
