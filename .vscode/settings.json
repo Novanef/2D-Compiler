@@ -1,0 +1,11 @@
+{
+<<<<<<< HEAD
+    "workbench.settings.editor": "json",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "typeinfo": "c"
+    }
+=======
+    "C_Cpp.errorSquiggles": "Enabled"
+>>>>>>> dba7a7451e78e9ae6f17466e3283340ca06dfe99
+}
