@@ -1,0 +1,11 @@
+pour lancer l'interpreteur :
+./interpreteurp2d
+
+pour lancer le deboggeur :
+./debuggeurp2d
+
+pour recompiler :
+make interpreteurp2d
+make debogueurp2d
+
+

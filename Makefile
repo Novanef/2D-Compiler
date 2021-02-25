@@ -1,35 +1,12 @@
-CC=gcc
-CFLAGS=-Wall -Wextra -std=c99
-EXEC=main
-BIN=bin/
-HDR=headers/
-SRC=src/
+CC = gcc -Wall -Wextra -g
+commandepilep2d.o : commandepilep2d.h 
+deplacementp2d.o : deplacementp2d.h
+instructionp2d.o : instructionp2d.h
+debogueurp2d.o : debogueurp2d.h
+interpreteurp2d.o : interpreteurp2d.h
 
-all: $(EXEC)
+debogueurp2d : debogueurp2d.o deplacementp2d.o instructionp2d.o commandepilep2d.o
+	$(CC) -o $@ $^ 
 
-main : main.o plateau.o interface.o structures.o carte.o
-	$(CC) $(BIN)interface.o $(BIN)structures.o $(BIN)plateau.o $(BIN)main.o -o $(BIN)main $(CFLAGS)
-
-main.o : $(SRC)main.c $(HDR)plateau.h $(HDR)interface.h $(HDR)carte.h
-	$(CC) -o $(BIN)main.o -c $(SRC)main.c $(CFLAGS)
-
-carte.o : $(SRC)carte.c $(HDR)structures.h $(HDR)carte.h
-	$(CC) -o $(BIN)carte.o -c $(SRC)carte.c $(CFLAGS)
-
-plateau.o: $(SRC)plateau.c $(HDR)plateau.h $(HDR)carte.h
-	$(CC) -o  $(BIN)plateau.o  -c $(SRC)plateau.c $(CFLAGS)
-
-interface.o : $(SRC)interface.c plateau.o structures.o
-	$(CC) -o  $(BIN)interface.o  -c $(SRC)interface.c $(CFLAGS)
-
-structures.o : $(SRC)structures.c
-	$(CC) -o  $(BIN)structures.o -c $(SRC)structures.c $(CFLAGS)
-
-clean:
-	rm -rf  $(BIN)*.o
-
-mrproper: clean
-	rm -rf  $(BIN)$(EXEC)
-
-run:
-	$(BIN)$(EXEC)
+interpreteurp2d : interpreteurp2d.o  deplacementp2d.o instructionp2d.o commandepilep2d.o
+	$(CC) -o $@ $^
